@@ -1,12 +1,16 @@
 import s from '../ContactsForms/ContactsForm.module.scss';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 import contactsOperations from '../../redux/contacts-operations';
-import { getVisibleContacts } from '../../redux/contacts-selectors';
+import * as contactsSelectors from '../../redux/contacts-selectors';
+import { useEffect } from 'react';
 
 // список добавленных контактов и удаление при клике на кнопку
-const ContactList = () => {
-  const contacts = useSelector(getVisibleContacts);
+const ContactList = ({ contacts }) => {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(contactsOperations.fetchContacts());
+  }, []);
 
   const onRemoveContact = (id) =>
     dispatch(contactsOperations.removeContact(id));
@@ -36,8 +40,6 @@ const ContactList = () => {
   );
 };
 
-export default ContactList;
-
 // const getVisibleContacts = (allContacts, filter) => {
 //   const normalizedFilter = filter.toLowerCase();
 
@@ -50,6 +52,14 @@ export default ContactList;
 //   contacts: getVisibleContacts(items, filter),
 // });
 
-// const mapDispatchToProps = (dispatch) => ({
-//   onRemoveContact: (id) => dispatch(contactsActions.removeContact(id)),
-// });
+const mapStateToProps = (state) => {
+  return {
+    contacts: contactsSelectors.getVisibleContacts(state),
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchContacts: () => dispatch(contactsOperations.fetchContacts()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
