@@ -40,21 +40,13 @@ const ContactList = ({ contacts }) => {
   );
 };
 
-// const getVisibleContacts = (allContacts, filter) => {
-//   const normalizedFilter = filter.toLowerCase();
-
-//   return allContacts.filter(({ name }) =>
-//     name.toLowerCase().includes(normalizedFilter)
-//   );
-// };
-
 // const mapStateToProps = ({ contacts: { items, filter } }) => ({
 //   contacts: getVisibleContacts(items, filter),
 // });
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (contacts) => {
   return {
-    contacts: contactsSelectors.getVisibleContacts(state),
+    contacts: contactsSelectors.getVisibleContacts(contacts),
   };
 };
 

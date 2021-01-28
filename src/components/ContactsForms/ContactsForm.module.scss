@@ -1,5 +1,5 @@
 .Container {
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
   max-width: 1440px;
@@ -11,11 +11,11 @@
 
 .panel__container {
   background: rgb(27, 20, 30);
-  padding: 10px;
+  padding: 5px;
   width: 100%;
   margin: auto;
   max-width: 25em;
-  border-radius: 30px;
+  border-radius: 3px;
 }
 
 h1 {
@@ -48,32 +48,32 @@ li {
 
 .form__item {
   margin: auto;
-  padding: 20px;
+  padding: 25px;
   width: 340px;
   height: auto;
   overflow: hidden;
   background: white;
-  border-radius: 20px;
+  border-radius: 8px;
 }
 
 .input__item {
-  margin: 15px 0;
-  padding: 15px 10px;
+  margin: 10px 5px;
+  padding: 5px 5px;
   width: 100%;
   outline: none;
   border: 1px solid #bbb;
-  border-radius: 20px;
+  border-radius: 10px;
   display: inline-block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 
   &:focus {
-    border-color: cornflowerblue;
+    border-color: grey;
   }
 }
 .button__submit {
-  padding: 10px 20px;
+  padding: 10px 15px;
   width: auto;
   background: black;
   border: none;
@@ -88,7 +88,7 @@ li {
   list-style: none;
 
   .contact__item {
-    font-size: 14px;
+    font-size: 12px;
     font-style: normal;
   }
 }
