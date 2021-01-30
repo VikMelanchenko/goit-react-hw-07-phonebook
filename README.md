@@ -1,9 +1,8 @@
-Критерии работы
-Создан репозиторий goit-react-hw-07-phonebook +
-Удален код отвечающий за хранение и чтение контактов из локального хранилища. +
-Добавлена в приложение Телефонной книги работа с бекендом для хранения контактов. +
-Создан локальный бекенд для разработки при помощи библиотеки json-server. +
-Использован db.json для базы данных +
-Написаны Redux-операции для работы с асинхронными запросами по паттерну request, success и error. +
-Добавлены селекторы в файл contacts-selectors.js +
-Сделай мемоизацию селекторов там, где необходимо. +
+Student app Phonebook 
+
+1. Removed the code responsible for storing and reading contacts from local storage.
+2. Added work with a backend for storing contacts to the "Phonebook" application. 
+3. Created a local backend for development using json-server library. 
+4. Used db.json for the database. Wrote Redux operations to deal with asynchronous requests using the request, success and error pattern. 
+5. Added selectors to the contacts-selectors.js file.
+6. Added memoization.
