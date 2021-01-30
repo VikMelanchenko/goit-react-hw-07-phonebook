@@ -1,8 +1,8 @@
 import s from '../ContactsForms/ContactsForm.module.scss';
 import { useDispatch, connect } from 'react-redux';
-import contactsOperations from '../../redux/contacts-operations';
-import * as contactsSelectors from '../../redux/contacts-selectors';
+import { contactsOperations, contactsSelectors } from '../../redux';
 import { useEffect } from 'react';
+import Filter from '../Filter/Filter';
 
 // список добавленных контактов и удаление при клике на кнопку
 const ContactList = ({ contacts }) => {
@@ -10,7 +10,7 @@ const ContactList = ({ contacts }) => {
 
   useEffect(() => {
     dispatch(contactsOperations.fetchContacts());
-  }, []);
+  }, [dispatch]);
 
   const onRemoveContact = (id) =>
     dispatch(contactsOperations.removeContact(id));
@@ -19,7 +19,7 @@ const ContactList = ({ contacts }) => {
 
   return (
     <div className={s.panel__container}>
-      <h1>Contacts</h1>
+      <Filter />
       <ul className={s.form__item}>
         {contacts.map(({ id, name, number }) => (
           <li key={id} className={s.input__item}>
@@ -39,10 +39,6 @@ const ContactList = ({ contacts }) => {
     </div>
   );
 };
-
-// const mapStateToProps = ({ contacts: { items, filter } }) => ({
-//   contacts: getVisibleContacts(items, filter),
-// });
 
 const mapStateToProps = (contacts) => {
   return {

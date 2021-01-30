@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { getContacts } from '../../redux/contacts-selectors';
 
-import contactsOperations from '../../redux/contacts-operations';
+import { contactsOperations } from '../../redux';
 
 export default function ContactsForms({ onSubmit }) {
   const [name, setName] = useState('');
